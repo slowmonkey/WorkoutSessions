@@ -2,37 +2,44 @@ package com.slowmonkeycodes.workoutsessions
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import java.util.*
+import android.widget.ImageButton
 
 class MainActivity : AppCompatActivity() {
 
-    enum class TimerState {
-        Stopped, Paused, Running
-    }
-
-    private lateinit var sessionButton: Button
-    private lateinit var sessionTimer: Timer
+    private lateinit var sessionPlayButton: ImageButton
+    private lateinit var sessionStopButton: ImageButton
+    private lateinit var sessionResetButton: ImageButton
+    private lateinit var sessionTimer: StopWatch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        resetWorkout()
+        sessionTimer = object: StopWatch(findViewById(R.id.session_timer)) {
 
-        sessionButton.setOnClickListener {
+        }
+
+        sessionPlayButton = findViewById(R.id.session_play_button)
+        sessionStopButton = findViewById(R.id.session_stop_button)
+        sessionResetButton = findViewById(R.id.session_reset_button)
+
+        sessionPlayButton.setOnClickListener {
             view ->
             startSessionTimer()
         }
-    }
 
-    private fun resetWorkout() {
-        sessionTimer = object: Timer() {
-            over
+        sessionStopButton.setOnClickListener {
+            view ->
+            sessionTimer.stop()
+        }
+
+        sessionResetButton.setOnClickListener {
+            view ->
+            sessionTimer.reset()
         }
     }
 
     private fun startSessionTimer() {
-
+        sessionTimer.start()
     }
 }
