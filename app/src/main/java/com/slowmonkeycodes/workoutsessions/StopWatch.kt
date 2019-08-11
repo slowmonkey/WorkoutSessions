@@ -3,6 +3,9 @@ package com.slowmonkeycodes.workoutsessions
 import android.os.SystemClock
 import android.widget.Chronometer
 
+// cite: https://stackoverflow.com/questions/5594877/android-chronometer-pause
+// Obtained answer from: https://stackoverflow.com/users/686720/henriks
+
 open class StopWatch constructor(chronometer: Chronometer) {
     enum class TimerState {
         Stopped, Paused, Running
