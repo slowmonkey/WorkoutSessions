@@ -30,7 +30,7 @@ open class StopWatch constructor(chronometer: Chronometer) {
         if (stopwatchState != TimerState.Running) {
             return
         }
-        
+
         this.timeWhenStopped = stopwatch.base - SystemClock.elapsedRealtime()
         stopwatchState = TimerState.Paused
         stopwatch.stop()
