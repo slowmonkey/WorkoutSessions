@@ -57,9 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         addWorkoutButton.setOnClickListener {
             val intent = Intent(this, WorkoutTimersListActivity::class.java).apply {
-
             }
-
             startActivity(intent)
         }
     }
