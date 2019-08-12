@@ -1,14 +1,19 @@
 package com.slowmonkeycodes.workoutsessions
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageButton
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var sessionPlayButton: ImageButton
-    private lateinit var sessionStopButton: ImageButton
-    private lateinit var sessionResetButton: ImageButton
+    private lateinit var startNewSessionButton: Button
+    private lateinit var finishSessionButton: Button
+    private lateinit var pauseResumeSessionButton: Button
+    private lateinit var restartSessionButton: Button
+
+    private lateinit var addWorkoutButton: Button
+
     private lateinit var sessionTimer: StopWatch
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,30 +21,46 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         sessionTimer = object: StopWatch(findViewById(R.id.session_timer)) {
-
         }
 
-        sessionPlayButton = findViewById(R.id.session_play_button)
-        sessionStopButton = findViewById(R.id.session_stop_button)
-        sessionResetButton = findViewById(R.id.session_reset_button)
+        startNewSessionButton = findViewById(R.id.start_session_button)
+        finishSessionButton = findViewById(R.id.finish_session_button)
+        pauseResumeSessionButton = findViewById(R.id.pause_resume_session_button)
+        restartSessionButton = findViewById(R.id.restart_session_button)
+        addWorkoutButton = findViewById(R.id.add_workout_button)
 
-        sessionPlayButton.setOnClickListener {
-            view ->
-            startSessionTimer()
+        startNewSessionButton.setOnClickListener {
+            sessionTimer.start()
         }
 
-        sessionStopButton.setOnClickListener {
-            view ->
+        finishSessionButton.setOnClickListener {
             sessionTimer.stop()
         }
 
-        sessionResetButton.setOnClickListener {
-            view ->
+        pauseResumeSessionButton.setOnClickListener {
+            when (sessionTimer.pauseOrResume()) {
+                StopWatch.PauseResumePostAction.SetToPause -> {
+                    pauseResumeSessionButton.text =  getString(R.string.pause_resume_resume_button)
+                }
+                StopWatch.PauseResumePostAction.SetToResume -> {
+                    pauseResumeSessionButton.text =  getString(R.string.pause_resume_pause_button)
+                }
+                StopWatch.PauseResumePostAction.DoNothing -> {
+                    // Do Nothing
+                }
+            }
+        }
+
+        restartSessionButton.setOnClickListener {
             sessionTimer.reset()
         }
-    }
 
-    private fun startSessionTimer() {
-        sessionTimer.start()
+        addWorkoutButton.setOnClickListener {
+            val intent = Intent(this, WorkoutTimersListActivity::class.java).apply {
+
+            }
+
+            startActivity(intent)
+        }
     }
 }

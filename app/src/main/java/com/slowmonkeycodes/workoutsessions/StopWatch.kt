@@ -8,29 +8,45 @@ import android.widget.Chronometer
 
 open class StopWatch constructor(chronometer: Chronometer) {
     enum class TimerState {
-        Stopped, Paused, Running
+        NotStarted, Stopped, Paused, Running
+    }
+
+    enum class PauseResumePostAction {
+        SetToPause, SetToResume, DoNothing
     }
 
     private val stopwatch: Chronometer = chronometer
     private var timeWhenStopped: Long = 0
-    private var stopwatchState: TimerState = TimerState.Stopped
+    private var stopwatchState: TimerState = TimerState.NotStarted
 
     fun start() {
-        if (stopwatchState == TimerState.Running) {
+        if (stopwatchState != TimerState.NotStarted) {
             return
         }
 
-        if (stopwatchState == TimerState.Paused) {
-            this.resume()
-            return
-        }
-
-        stopwatch.start()
         stopwatchState = TimerState.Running
+        stopwatch.base = SystemClock.elapsedRealtime()
+        stopwatch.start()
     }
 
-    fun stop() {
-        if (stopwatchState != TimerState.Running) {
+    fun pauseOrResume(): PauseResumePostAction {
+        return when(stopwatchState) {
+            TimerState.Running -> {
+                pause()
+                PauseResumePostAction.SetToPause
+            }
+            TimerState.Paused -> {
+                resume()
+                PauseResumePostAction.SetToResume
+            }
+            else -> {
+                PauseResumePostAction.DoNothing
+            }
+        }
+    }
+
+    private fun pause() {
+        if (stopwatchState != TimerState.Running || stopwatchState == TimerState.Stopped) {
             return
         }
 
@@ -39,16 +55,33 @@ open class StopWatch constructor(chronometer: Chronometer) {
         stopwatch.stop()
     }
 
+    private fun resume() {
+        if (stopwatchState != TimerState.Paused || stopwatchState == TimerState.Stopped) {
+            return
+        }
+
+        stopwatch.base = SystemClock.elapsedRealtime() + this.timeWhenStopped
+        stopwatch.start()
+        stopwatchState = TimerState.Running
+    }
+
+    fun stop() {
+        if (stopwatchState == TimerState.NotStarted) {
+            return
+        }
+
+        if (stopwatchState != TimerState.Running && stopwatchState != TimerState.Paused) {
+            return
+        }
+
+        stopwatchState = TimerState.Stopped
+        stopwatch.stop()
+    }
+
     fun reset() {
         stopwatch.base = SystemClock.elapsedRealtime()
         this.timeWhenStopped = 0
         stopwatchState = TimerState.Stopped
         stopwatch.stop()
-    }
-
-    private fun resume() {
-        stopwatch.base = SystemClock.elapsedRealtime() + this.timeWhenStopped
-        stopwatch.start()
-        stopwatchState = TimerState.Running
     }
 }

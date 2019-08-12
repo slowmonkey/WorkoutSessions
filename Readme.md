@@ -4,13 +4,17 @@ This app logs a session's activities based on the required exercises.
 
 # ToDo List
 
-## Session Creation
+## Add New WorkoutTimer - Fingerboard repeaters
 
-* Rework the main activity for session logs
-* Move session timer work into a session activity
-* Button to add a session
-    * Pop-up? to label the activity
-* List view to list all the session logs
+* Timer to include Hang Time
+* Timer to include Rest Time
+* Timer to include Reps
+* Timer to include Rest at Set Time
+* Timer to include Sets
+* Timer to include Pause button
+* Timer to include Forward to next Set
+* Timer to include Reverse to previous Set
+* Timer to include 5s countdown on Starting, Resume, Forward, Reverse actions
 
 
 ## Session Timer - 2019-08-11: Completed

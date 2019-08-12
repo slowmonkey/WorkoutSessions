@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Workout Sessions</string>
-    <string name="session_button">Start</string>
-    <string name="session_timer_text"/>
+    <string name="finish_session_button">Finish Session</string>
+    <string name="start_session_button">Start New Session</string>
+    <string name="pause_resume_pause_button">Pause</string>
+    <string name="pause_resume_resume_button">Resume</string>
+    <string name="restart_session_button">Restart Session</string>
+    <string name="add_workout_timer_button">Add Workout</string>
+    <string name="cancel_add_workout_button">Cancel</string>
 </resources>
