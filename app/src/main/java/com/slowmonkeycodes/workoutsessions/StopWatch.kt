@@ -81,7 +81,7 @@ open class StopWatch constructor(chronometer: Chronometer) {
     fun reset() {
         stopwatch.base = SystemClock.elapsedRealtime()
         this.timeWhenStopped = 0
-        stopwatchState = TimerState.Stopped
+        stopwatchState = TimerState.NotStarted
         stopwatch.stop()
     }
 }
