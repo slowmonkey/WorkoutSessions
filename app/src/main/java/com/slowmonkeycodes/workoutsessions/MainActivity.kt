@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         restartSessionButton.setOnClickListener {
             sessionTimer.reset()
+            pauseResumeSessionButton.text =  getString(R.string.pause_resume_pause_button)
         }
 
         addWorkoutButton.setOnClickListener {
