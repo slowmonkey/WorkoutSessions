@@ -9,10 +9,10 @@
 
     <Chronometer
             android:id="@+id/session_timer"
-            android:layout_width="200sp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:textSize="36sp"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="80dp"/>
@@ -56,11 +56,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/restart_session_button"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="1.0"/>
     <Button
             android:text="@string/add_workout_timer_button"
             android:layout_width="0dp"
@@ -68,5 +68,12 @@
             android:id="@+id/add_workout_button" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="145dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+    <ScrollView
+            android:layout_width="395dp"
+            android:layout_height="458dp" tools:layout_editor_absoluteY="201dp" tools:layout_editor_absoluteX="8dp"
+            android:id="@+id/workout_scroll_view">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical"/>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
