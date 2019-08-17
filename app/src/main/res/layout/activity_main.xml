@@ -8,4 +8,42 @@
         tools:context=".MainActivity">
 
 
+    <Button
+            android:text="@string/new_workout_session_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/new_workout_session_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="177dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="506dp"/>
+
+    <Button
+            android:text="@string/view_workout_sessions_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/view_workout_sessions_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="236dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="447dp"/>
+
+    <Button
+            android:text="@string/run_workout_timer_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/run_workout_timer_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="355dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="328dp"/>
 </android.support.constraint.ConstraintLayout>

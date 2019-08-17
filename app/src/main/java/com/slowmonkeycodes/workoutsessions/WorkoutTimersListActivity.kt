@@ -10,7 +10,6 @@ import android.widget.TextView
 class WorkoutTimersListActivity : AppCompatActivity() {
 
     private lateinit var cancelAddWorkoutButton : Button
-    private lateinit var availableWorkoutsScrollView : ScrollView
     private lateinit var availableWorkoutsLinearLayout : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
