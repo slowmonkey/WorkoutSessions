@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         viewWorkoutSessionButton.isEnabled = false
 
         runWorkoutTimer.setOnClickListener {
-            val intent = Intent(this, CountXTimerSetupActivity::class.java).apply {
+            val intent = Intent(this, CountOnElapseTimeTimerSetupActivity::class.java).apply {
             }
 
             startActivity(intent)

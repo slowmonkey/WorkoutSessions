@@ -9,9 +9,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".CountOnElapsedTimeTimerActivity">
+        </activity>
         <activity android:name=".WorkoutSessionActivity">
         </activity>
-        <activity android:name=".CountXTimerSetupActivity">
+        <activity android:name=".CountOnElapseTimeTimerSetupActivity">
         </activity>
         <activity android:name=".WorkoutTimersListActivity">
         </activity>

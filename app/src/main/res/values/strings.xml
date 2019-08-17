@@ -8,9 +8,13 @@
     <string name="add_workout_timer_button">Add Workout</string>
     <string name="cancel_add_workout_button">Cancel</string>
     <string name="start_workout_button">Start</string>
+    <string name="pause_workout_button">Pause</string>
+    <string name="resume_workout_button">Resume</string>
     <string name="count_every_label">Count Every:</string>
     <string name="count_every_hint">time in seconds</string>
     <string name="new_workout_session_button">New Workout Session</string>
     <string name="run_workout_timer_button">Run Workout Timer</string>
     <string name="view_workout_sessions_button">View Workout Sessions</string>
+    <string name="count_every_value_default">60</string>
+    <string name="set_counter_label">Count:</string>
 </resources>

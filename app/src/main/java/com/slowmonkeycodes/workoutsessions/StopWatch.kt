@@ -29,6 +29,10 @@ open class StopWatch constructor(chronometer: Chronometer) {
         stopwatch.start()
     }
 
+    fun getStopWatchState() : TimerState {
+        return stopwatchState
+    }
+
     fun pauseOrResume(): PauseResumePostAction {
         return when(stopwatchState) {
             TimerState.Running -> {
@@ -84,4 +88,9 @@ open class StopWatch constructor(chronometer: Chronometer) {
         stopwatchState = TimerState.NotStarted
         stopwatch.stop()
     }
+
+    fun onChronometerTickListener() {
+
+    }
+
 }
