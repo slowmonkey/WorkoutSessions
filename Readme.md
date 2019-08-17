@@ -1,29 +1,9 @@
-# Workout Sessions App
+# Workout Timers App
 
-This app logs a session's activities based on the required exercises.
+This app provides workout timers.
 
-# ToDo List
+# Current available timers.
 
-## Add New WorkoutTimer - Fingerboard repeaters
+- Count on Elapsed Time Timer.
 
-* Timer to include Hang Time
-* Timer to include Rest Time
-* Timer to include Reps
-* Timer to include Rest at Set Time
-* Timer to include Sets
-* Timer to include Pause button
-* Timer to include Forward to next Set
-* Timer to include Reverse to previous Set
-* Timer to include 5s countdown on Starting, Resume, Forward, Reverse actions
-
-
-## Session Timer - 2019-08-11: Completed
-This timer will be used to record the full session time.
-
-* ~~Create button to start the session.~~
-    * ~~Create the physical button.~~
-    * ~~Starting the session starts a session timer.~~
-* ~~Create text view to show the session timer.~~
-* ~~Create button to stop the session.~~
-
-This has been modified to have a play, stop/pause, and reset button
+This timer counts the number of reps/sets based on the seconds elapsed specified.
