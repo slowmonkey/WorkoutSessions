@@ -24,7 +24,7 @@ class CountOnElapseTimeTimerSetupActivity : AppCompatActivity() {
 
             val intent = Intent(this, CountOnElapsedTimeTimerActivity::class.java).apply {
             }
-
+            intent.putExtra("countOnEveryElapsedTime", Integer.parseInt(countOnEveryElapsedTime.text.toString()))
             startActivity(intent)
         }
     }

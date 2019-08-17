@@ -15,7 +15,7 @@ open class StopWatch constructor(chronometer: Chronometer) {
         SetToPause, SetToResume, DoNothing
     }
 
-    private val stopwatch: Chronometer = chronometer
+    public val stopwatch: Chronometer = chronometer
     private var timeWhenStopped: Long = 0
     private var stopwatchState: TimerState = TimerState.NotStarted
 
@@ -88,9 +88,4 @@ open class StopWatch constructor(chronometer: Chronometer) {
         stopwatchState = TimerState.NotStarted
         stopwatch.stop()
     }
-
-    fun onChronometerTickListener() {
-
-    }
-
 }
