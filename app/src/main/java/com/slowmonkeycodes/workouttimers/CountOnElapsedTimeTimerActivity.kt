@@ -1,11 +1,9 @@
-package com.slowmonkeycodes.workoutsessions
+package com.slowmonkeycodes.workouttimers
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.SystemClock
-import android.view.View
 import android.widget.Button
-import android.widget.Chronometer
 import android.widget.Chronometer.OnChronometerTickListener
 import android.widget.TextView
 

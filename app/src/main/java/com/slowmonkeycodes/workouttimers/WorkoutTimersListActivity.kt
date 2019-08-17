@@ -1,10 +1,9 @@
-package com.slowmonkeycodes.workoutsessions
+package com.slowmonkeycodes.workouttimers
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.ScrollView
 import android.widget.TextView
 
 class WorkoutTimersListActivity : AppCompatActivity() {

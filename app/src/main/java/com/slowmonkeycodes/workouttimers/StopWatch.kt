@@ -1,4 +1,4 @@
-package com.slowmonkeycodes.workoutsessions
+package com.slowmonkeycodes.workouttimers
 
 import android.os.SystemClock
 import android.widget.Chronometer
@@ -15,7 +15,7 @@ open class StopWatch constructor(chronometer: Chronometer) {
         SetToPause, SetToResume, DoNothing
     }
 
-    public val stopwatch: Chronometer = chronometer
+    val stopwatch: Chronometer = chronometer
     private var timeWhenStopped: Long = 0
     private var stopwatchState: TimerState = TimerState.NotStarted
 

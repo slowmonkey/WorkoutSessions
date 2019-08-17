@@ -1,4 +1,4 @@
-package com.slowmonkeycodes.workoutsessions
+package com.slowmonkeycodes.workouttimers
 
 import org.junit.Test
 

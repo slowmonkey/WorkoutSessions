@@ -1,4 +1,4 @@
-package com.slowmonkeycodes.workoutsessions
+package com.slowmonkeycodes.workouttimers
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity

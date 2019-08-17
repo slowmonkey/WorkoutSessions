@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Workout Sessions</string>
+    <string name="app_name">Workout Timers</string>
     <string name="finish_session_button">Finish Session</string>
     <string name="start_session_button">Start New Session</string>
     <string name="pause_resume_pause_button">Pause</string>
