@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".CountXTimerSetup">
+        tools:context=".CountXTimerSetupActivity">
 
     <Button
             android:text="@string/start_workout_button"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText" app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/count_every_value" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="301dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="385dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="106dp" android:layout_marginEnd="105dp"
