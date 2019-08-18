@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         fingerboardTimerButton = findViewById(R.id.fingerboard_timer_button)
         fingerboardTimerButton.setOnClickListener {
-            val intent = Intent(this, FingerboardTimerActivity::class.java).apply {
+            val intent = Intent(this, FingerboardTimerSetupActivity::class.java).apply {
             }
 
             startActivity(intent)
