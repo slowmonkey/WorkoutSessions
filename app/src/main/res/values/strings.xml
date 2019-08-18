@@ -19,5 +19,8 @@
     <string name="set_counter_label">Count</string>
     <string name="finger_board_timer_button">Fingerboard Timer</string>
     <string name="hang_time_label">Hang Time</string>
-    <string name="reps_rest_time_label">Rest</string>
+    <string name="reps_rest_time_label">Rest Time</string>
+    <string name="number_of_reps_label">Number of Reps</string>
+    <string name="sets_rest_time">Rest Time between Sets</string>
+    <string name="number_of_sets_label">Number of Sets</string>
 </resources>
