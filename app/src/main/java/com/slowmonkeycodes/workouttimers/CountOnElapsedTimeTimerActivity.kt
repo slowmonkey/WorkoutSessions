@@ -4,8 +4,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.SystemClock
 import android.widget.Button
-import android.widget.Chronometer.OnChronometerTickListener
 import android.widget.TextView
+import android.widget.Chronometer.OnChronometerTickListener as OnChronometerTickListener1
 
 class CountOnElapsedTimeTimerActivity : AppCompatActivity() {
 
@@ -14,14 +14,12 @@ class CountOnElapsedTimeTimerActivity : AppCompatActivity() {
     private lateinit var counterTextView: TextView
     private var countOnElapsedTime: Int = 60
     private var repCount: Int = 0
-    private var firstTick: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_count_on_elapsed_time_timer)
 
         repCount = 0
-        firstTick = true
 
         countOnElapsedTime = intent.getIntExtra("countOnEveryElapsedTime", 60)
         counterTextView = findViewById(R.id.counter_text_view)
@@ -36,6 +34,7 @@ class CountOnElapsedTimeTimerActivity : AppCompatActivity() {
                 StopWatch.TimerState.NotStarted -> {
                     workoutTimer.start()
                     startPauseResumeWorkoutButton.text = getString(R.string.pause_workout_button)
+                    incrementRepCount()
                 }
                 StopWatch.TimerState.Running -> {
                     workoutTimer.pauseOrResume()
@@ -51,25 +50,16 @@ class CountOnElapsedTimeTimerActivity : AppCompatActivity() {
             }
         }
 
-        workoutTimer.stopwatch.onChronometerTickListener =
-            OnChronometerTickListener { chronometer ->
-                val elapsedSeconds = (SystemClock.elapsedRealtime() - chronometer.base) / 1000
+        workoutTimer.onChronometerTickListener(OnChronometerTickListener1 { chronometer ->
+            val elapsedSeconds = (SystemClock.elapsedRealtime() - chronometer.base) / 1000
 
-                if (elapsedSeconds.rem(countOnElapsedTime).toInt() == 0) {
-                    incrementRepCount()
-                }
+            if (elapsedSeconds.rem(countOnElapsedTime).toInt() == 0 && elapsedSeconds.toInt() != 0) {
+                incrementRepCount()
             }
+        })
     }
 
     private fun incrementRepCount() {
-        // There is some weird bug which calls the listener twice when the elapsedSeconds is 0.
-        // This also causes some discernible lag from the 0 to 1 second tick.
-        // TODO: Fix discernible lag from the 0 to 1 second tick.
-
-        if (firstTick) {
-            firstTick = false
-            return
-        }
         repCount += 1
         counterTextView.text = repCount.toString()
     }
