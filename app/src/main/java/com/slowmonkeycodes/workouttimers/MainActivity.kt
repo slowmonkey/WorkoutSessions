@@ -7,33 +7,15 @@ import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var newWorkoutSessionButton : Button
-    private lateinit var viewWorkoutSessionButton : Button
-
-    private lateinit var runWorkoutTimer : Button
+    private lateinit var countOnElapsedTimeTimerButton : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        newWorkoutSessionButton = findViewById(R.id.new_workout_session_button)
-        viewWorkoutSessionButton = findViewById(R.id.view_workout_sessions_button)
+        countOnElapsedTimeTimerButton = findViewById(R.id.count_on_elapsed_time_timer_button)
 
-        // Going to just run an individual timer for now.
-
-        runWorkoutTimer = findViewById(R.id.run_workout_timer_button)
-
-        newWorkoutSessionButton.setOnClickListener {
-            val intent = Intent(this, WorkoutSessionActivity::class.java).apply {
-            }
-            startActivity(intent)
-        }
-
-        // TODO: Add functionality for this button. Disabled for now.
-
-        viewWorkoutSessionButton.isEnabled = false
-
-        runWorkoutTimer.setOnClickListener {
+        countOnElapsedTimeTimerButton.setOnClickListener {
             val intent = Intent(this, CountOnElapseTimeTimerSetupActivity::class.java).apply {
             }
 

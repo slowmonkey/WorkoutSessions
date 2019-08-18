@@ -13,7 +13,7 @@
     <string name="count_every_label">Count Every:</string>
     <string name="count_every_hint">time in seconds</string>
     <string name="new_workout_session_button">New Workout Session</string>
-    <string name="run_workout_timer_button">Run Workout Timer</string>
+    <string name="count_on_elapsed_time_timer_button">Count on Elapsed Time Timer</string>
     <string name="view_workout_sessions_button">View Workout Sessions</string>
     <string name="count_every_value_default">60</string>
     <string name="set_counter_label">Count</string>
