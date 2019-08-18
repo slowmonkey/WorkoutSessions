@@ -5,31 +5,30 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".FingerboardTimerActivity">
 
-    <Button
-            android:text="@string/count_on_elapsed_time_timer_button"
-            android:layout_width="395dp"
+    <TextView
+            android:text="@string/hang_time_label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/count_on_elapsed_time_timer_button"
+            android:id="@+id/hang_time_label"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="220dp"
-            android:textSize="18sp"/>
-    
-    <Button
-            android:text="@string/finger_board_timer_button"
-            android:layout_width="395dp"
+            android:layout_marginTop="58dp"/>
+
+    <TextView
+            android:text="@string/reps_rest_time_label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fingerboard_timer_button"
-            android:textSize="18sp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="284dp"
+            android:id="@+id/reps_rest_time_label"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="292dp"/>
 
 </android.support.constraint.ConstraintLayout>

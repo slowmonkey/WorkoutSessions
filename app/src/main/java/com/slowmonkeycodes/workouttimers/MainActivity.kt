@@ -8,6 +8,7 @@ import android.widget.Button
 class MainActivity : AppCompatActivity() {
 
     private lateinit var countOnElapsedTimeTimerButton : Button
+    private lateinit var fingerboardTimerButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +18,14 @@ class MainActivity : AppCompatActivity() {
 
         countOnElapsedTimeTimerButton.setOnClickListener {
             val intent = Intent(this, CountOnElapseTimeTimerSetupActivity::class.java).apply {
+            }
+
+            startActivity(intent)
+        }
+
+        fingerboardTimerButton = findViewById(R.id.fingerboard_timer_button)
+        fingerboardTimerButton.setOnClickListener {
+            val intent = Intent(this, FingerboardTimerActivity::class.java).apply {
             }
 
             startActivity(intent)

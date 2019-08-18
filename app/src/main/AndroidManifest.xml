@@ -9,15 +9,17 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="com.slowmonkeycodes.workouttimers.CountOnElapsedTimeTimerActivity">
+        <activity android:name=".FingerboardTimerActivity">
         </activity>
-        <activity android:name="com.slowmonkeycodes.workouttimers.WorkoutSessionActivity">
+        <activity android:name=".CountOnElapsedTimeTimerActivity">
         </activity>
-        <activity android:name="com.slowmonkeycodes.workouttimers.CountOnElapseTimeTimerSetupActivity">
+        <activity android:name=".WorkoutSessionActivity">
         </activity>
-        <activity android:name="com.slowmonkeycodes.workouttimers.WorkoutTimersListActivity">
+        <activity android:name=".CountOnElapseTimeTimerSetupActivity">
         </activity>
-        <activity android:name="com.slowmonkeycodes.workouttimers.MainActivity">
+        <activity android:name=".WorkoutTimersListActivity">
+        </activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
