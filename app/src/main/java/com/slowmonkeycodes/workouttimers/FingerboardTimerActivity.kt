@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.TextView
+import com.slowmonkeycodes.workouttimers.fingerboardtimer.Action
+import com.slowmonkeycodes.workouttimers.fingerboardtimer.Workout
 
 class FingerboardTimerActivity : AppCompatActivity() {
     private var hangTime: Int = 0
@@ -30,12 +32,18 @@ class FingerboardTimerActivity : AppCompatActivity() {
         restBetweenSets = intent.getIntExtra("restBetweenSets", 60)
 
         val fingerboardWorkout =
-            FingerboardWorkout(numberOfReps, numberOfSets, hangTime, repsRestTime, restBetweenSets)
+            Workout(
+                numberOfReps,
+                numberOfSets,
+                hangTime,
+                repsRestTime,
+                restBetweenSets
+            )
 
         startWorkoutButton = findViewById(R.id.start_workout_button)
 
         startWorkoutButton.setOnClickListener {
-            for (actions: FingerboardAction in fingerboardWorkout.actions) {
+            for (actions: Action in fingerboardWorkout.actions) {
 
             }
         }
