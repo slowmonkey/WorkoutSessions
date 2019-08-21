@@ -7,9 +7,12 @@ import android.widget.Button
 import android.widget.TextView
 
 class FingerboardTimerActivity : AppCompatActivity() {
+    private var hangTime: Int = 0
+    private var repsRestTime: Int = 0
+    private var numberOfReps: Int = 0
+    private var numberOfSets: Int = 0
+    private var restBetweenSets: Int = 0
 
-    private var setCount: Int = 0
-    private var repCount: Int = 0
     private lateinit var countDownTimer: CountDownTimer
     private lateinit var countDownTimerTextView: TextView
     private lateinit var currentStatusTextView: TextView
@@ -20,6 +23,21 @@ class FingerboardTimerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fingerboard_timer)
 
+        hangTime = intent.getIntExtra("hangTime", 60)
+        repsRestTime = intent.getIntExtra("repsRestTime", 60)
+        numberOfReps = intent.getIntExtra("numberOfReps", 60)
+        numberOfSets = intent.getIntExtra("numberOfSets", 60)
+        restBetweenSets = intent.getIntExtra("restBetweenSets", 60)
 
+        val fingerboardWorkout =
+            FingerboardWorkout(numberOfReps, numberOfSets, hangTime, repsRestTime, restBetweenSets)
+
+        startWorkoutButton = findViewById(R.id.start_workout_button)
+
+        startWorkoutButton.setOnClickListener {
+            for (actions: FingerboardAction in fingerboardWorkout.actions) {
+
+            }
+        }
     }
 }
