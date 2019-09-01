@@ -12,4 +12,8 @@ open class Action constructor(
 
         return ActionTypeCategory.Rep
     }
+
+    fun getTimeInSeconds() : Int {
+        return timeInSeconds
+    }
 }

@@ -20,16 +20,21 @@ class FingerboardTimerActivity : AppCompatActivity() {
     private lateinit var currentStatusTextView: TextView
     private lateinit var currentActionTextView: TextView
     private lateinit var startWorkoutButton: Button
+    private var timerIndex: Int = 0
+
+    private val countDownInterval: Long = 1000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fingerboard_timer)
 
-        hangTime = intent.getIntExtra("hangTime", 60)
-        repsRestTime = intent.getIntExtra("repsRestTime", 60)
-        numberOfReps = intent.getIntExtra("numberOfReps", 60)
-        numberOfSets = intent.getIntExtra("numberOfSets", 60)
-        restBetweenSets = intent.getIntExtra("restBetweenSets", 60)
+        countDownTimerTextView = findViewById(R.id.count_down_timer_text_view)
+
+        hangTime = intent.getIntExtra("hangTime", 5)
+        repsRestTime = intent.getIntExtra("repsRestTime", 3)
+        numberOfReps = intent.getIntExtra("numberOfReps", 2)
+        numberOfSets = intent.getIntExtra("numberOfSets", 3)
+        restBetweenSets = intent.getIntExtra("restBetweenSets", 10)
 
         val fingerboardWorkout =
             Workout(
@@ -40,11 +45,32 @@ class FingerboardTimerActivity : AppCompatActivity() {
                 restBetweenSets
             )
 
+        createCountDownTimer(fingerboardWorkout, timerIndex)
+
         startWorkoutButton = findViewById(R.id.start_workout_button)
 
         startWorkoutButton.setOnClickListener {
-            for (actions: Action in fingerboardWorkout.actions) {
+            countDownTimer.start()
+        }
+    }
 
+    fun createCountDownTimer(workout: Workout, timerIndex: Int) {
+        val countDownTime: Int = workout.actions[timerIndex].getTimeInSeconds()
+        countDownTimerTextView.text = countDownTime.toString()
+        countDownTimer = object: CountDownTimer((countDownTime * 1000).toLong(), countDownInterval) {
+            override fun onTick(millisUntilFinished: Long) {
+//                timeLeftOnTimer = millisUntilFinished
+                val timeLeft = millisUntilFinished / 1000
+                countDownTimerTextView.text = timeLeft.toString()
+            }
+
+            override fun onFinish() {
+                this@FingerboardTimerActivity.timerIndex += 1
+                if (workout.actions.size < this@FingerboardTimerActivity.timerIndex) {
+                    return
+                }
+                createCountDownTimer(workout, this@FingerboardTimerActivity.timerIndex)
+                countDownTimer.start()
             }
         }
     }

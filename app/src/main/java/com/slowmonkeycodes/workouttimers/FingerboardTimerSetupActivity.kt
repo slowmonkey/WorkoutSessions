@@ -22,7 +22,7 @@ class FingerboardTimerSetupActivity : AppCompatActivity() {
 
         hangTime = findViewById(R.id.hang_time_text_view)
         repsRestTime = findViewById(R.id.reps_rest_time_text_view)
-        numberOfReps = findViewById(R.id.number_of_reps_label)
+        numberOfReps = findViewById(R.id.number_of_reps_text_view)
         numberOfSets = findViewById(R.id.number_of_sets_text_view)
         restBetweenSets = findViewById(R.id.rest_time_between_sets_text_view)
 
@@ -32,13 +32,29 @@ class FingerboardTimerSetupActivity : AppCompatActivity() {
 
             // TODO: Validation of the component's values
 
-            val intent = Intent(this, CountOnElapsedTimeTimerActivity::class.java).apply {
+            val intent = Intent(this, FingerboardTimerActivity::class.java).apply {
             }
-            intent.putExtra("hangTime", Integer.parseInt(hangTime.text.toString()))
-            intent.putExtra("repsRestTime", Integer.parseInt(repsRestTime.text.toString()))
-            intent.putExtra("numberOfReps", Integer.parseInt(numberOfReps.text.toString()))
-            intent.putExtra("numberOfSets", Integer.parseInt(numberOfSets.text.toString()))
-            intent.putExtra("restBetweenSets", Integer.parseInt(restBetweenSets.text.toString()))
+
+            if (hangTime.text.isNotEmpty()) {
+                intent.putExtra("hangTime", Integer.parseInt(hangTime.text.toString()))
+            }
+
+            if (repsRestTime.text.isNotEmpty()) {
+                intent.putExtra("repsRestTime", Integer.parseInt(repsRestTime.text.toString()))
+            }
+
+            if (numberOfReps.text.isNotEmpty()) {
+                intent.putExtra("numberOfReps", Integer.parseInt(numberOfReps.text.toString()))
+            }
+
+            if (numberOfSets.text.isNotEmpty()) {
+                intent.putExtra("numberOfSets", Integer.parseInt(numberOfSets.text.toString()))
+            }
+
+            if (restBetweenSets.text.isNotEmpty()) {
+                intent.putExtra("restBetweenSets", Integer.parseInt(restBetweenSets.text.toString()))
+            }
+
             startActivity(intent)
         }
 
