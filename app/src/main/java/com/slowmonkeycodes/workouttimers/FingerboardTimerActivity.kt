@@ -29,6 +29,9 @@ class FingerboardTimerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_fingerboard_timer)
 
         countDownTimerTextView = findViewById(R.id.count_down_timer_text_view)
+        currentStatusTextView = findViewById(R.id.workout_status_text_view)
+        currentActionTextView = findViewById(R.id.current_action_text_view)
+
 
         hangTime = intent.getIntExtra("hangTime", 5)
         repsRestTime = intent.getIntExtra("repsRestTime", 3)
@@ -50,6 +53,8 @@ class FingerboardTimerActivity : AppCompatActivity() {
         startWorkoutButton = findViewById(R.id.start_workout_button)
 
         startWorkoutButton.setOnClickListener {
+            currentStatusTextView.text = fingerboardWorkout.actions[timerIndex].getActionTypeAsString()
+            // Count down to start.
             countDownTimer.start()
         }
     }
@@ -57,6 +62,7 @@ class FingerboardTimerActivity : AppCompatActivity() {
     fun createCountDownTimer(workout: Workout, timerIndex: Int) {
         val countDownTime: Int = workout.actions[timerIndex].getTimeInSeconds()
         countDownTimerTextView.text = countDownTime.toString()
+        currentStatusTextView.text = workout.actions[timerIndex].getActionTypeAsString()
         countDownTimer = object: CountDownTimer((countDownTime * 1000).toLong(), countDownInterval) {
             override fun onTick(millisUntilFinished: Long) {
 //                timeLeftOnTimer = millisUntilFinished
@@ -69,6 +75,7 @@ class FingerboardTimerActivity : AppCompatActivity() {
                 if (workout.actions.size < this@FingerboardTimerActivity.timerIndex) {
                     return
                 }
+                Thread.sleep(1000)
                 createCountDownTimer(workout, this@FingerboardTimerActivity.timerIndex)
                 countDownTimer.start()
             }

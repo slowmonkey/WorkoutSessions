@@ -13,6 +13,14 @@ open class Action constructor(
         return ActionTypeCategory.Rep
     }
 
+    fun getActionTypeAsString() : String {
+        return when(actionType) {
+            ActionType.Hang -> "Hang"
+            ActionType.Rest -> "Rest (Rep)"
+            ActionType.EndOfSetRest -> "Rest (Set)"
+        }
+    }
+
     fun getTimeInSeconds() : Int {
         return timeInSeconds
     }
