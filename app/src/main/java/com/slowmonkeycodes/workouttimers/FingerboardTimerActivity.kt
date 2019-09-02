@@ -75,8 +75,8 @@ class FingerboardTimerActivity : AppCompatActivity() {
                 if (workout.actions.size < this@FingerboardTimerActivity.timerIndex) {
                     return
                 }
-                Thread.sleep(1000)
                 createCountDownTimer(workout, this@FingerboardTimerActivity.timerIndex)
+                Thread.sleep(500)
                 countDownTimer.start()
             }
         }
