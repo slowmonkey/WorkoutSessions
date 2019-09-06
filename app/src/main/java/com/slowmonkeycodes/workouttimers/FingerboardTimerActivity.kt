@@ -72,11 +72,10 @@ class FingerboardTimerActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 this@FingerboardTimerActivity.timerIndex += 1
-                if (workout.actions.size < this@FingerboardTimerActivity.timerIndex) {
+                if (workout.actions.size <= this@FingerboardTimerActivity.timerIndex) {
                     return
                 }
                 createCountDownTimer(workout, this@FingerboardTimerActivity.timerIndex)
-                Thread.sleep(500)
                 countDownTimer.start()
             }
         }
