@@ -20,13 +20,17 @@
             android:layout_marginTop="16dp"/>
 
     <EditText
+            android:id="@+id/hang_time_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:layout_marginTop="48dp"
             android:ems="10"
-            android:id="@+id/hang_time_text_view" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="48dp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:textSize="18sp"/>
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
             android:text="@string/reps_rest_time_label"
@@ -39,16 +43,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="100dp"/>
+
     <EditText
+            android:id="@+id/reps_rest_time_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:layout_marginTop="132dp"
             android:ems="10"
-            android:id="@+id/reps_rest_time_text_view"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="132dp" app:layout_constraintStart_toStartOf="parent"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="18sp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     <TextView
             android:text="@string/number_of_reps_label"
             android:layout_width="wrap_content"
@@ -56,14 +63,19 @@
             android:id="@+id/number_of_reps_label" android:textSize="18sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="188dp" app:layout_constraintHorizontal_bias="0.503"/>
+
     <EditText
+            android:id="@+id/number_of_reps_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:layout_marginTop="220dp"
             android:ems="10"
-            android:id="@+id/number_of_reps_text_view" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="220dp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:textSize="18sp"/>
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     <TextView
             android:text="@string/sets_rest_time"
             android:layout_width="wrap_content"
@@ -72,15 +84,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="276dp" app:layout_constraintHorizontal_bias="0.497"/>
+
     <EditText
+            android:id="@+id/rest_time_between_sets_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:layout_marginTop="308dp"
             android:ems="10"
-            android:id="@+id/rest_time_between_sets_text_view"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="308dp" android:textSize="18sp"/>
+            app:layout_constraintTop_toTopOf="parent" />
     <TextView
             android:text="@string/number_of_sets_label"
             android:layout_width="wrap_content"
@@ -88,15 +104,19 @@
             android:id="@+id/number_of_sets_label" android:textSize="18sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.51" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="364dp"/>
+
     <EditText
+            android:id="@+id/number_of_sets_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:layout_marginTop="396dp"
             android:ems="10"
-            android:id="@+id/number_of_sets_text_view"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="396dp" android:textSize="18sp"/>
+            app:layout_constraintTop_toTopOf="parent" />
     <Button
             android:text="@string/start_workout_button"
             android:layout_width="395dp"
