@@ -3,9 +3,12 @@ package com.slowmonkeycodes.workouttimers
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import com.slowmonkeycodes.workouttimers.fingerboardtimer.Workout
+import java.util.*
 
 class FingerboardTimerActivity : AppCompatActivity() {
     private var hangTime: Int = 0
@@ -23,6 +26,8 @@ class FingerboardTimerActivity : AppCompatActivity() {
 
     private val countDownInterval: Long = 1000
 
+    private lateinit var textToSpeech: TextToSpeech
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fingerboard_timer)
@@ -30,7 +35,6 @@ class FingerboardTimerActivity : AppCompatActivity() {
         countDownTimerTextView = findViewById(R.id.count_down_timer_text_view)
         currentStatusTextView = findViewById(R.id.workout_status_text_view)
         currentActionTextView = findViewById(R.id.current_action_text_view)
-
 
         hangTime = intent.getIntExtra("hangTime", 5)
         repsRestTime = intent.getIntExtra("repsRestTime", 3)
@@ -47,6 +51,13 @@ class FingerboardTimerActivity : AppCompatActivity() {
                 restBetweenSets
             )
 
+        textToSpeech = TextToSpeech(applicationContext, TextToSpeech.OnInitListener {
+            status ->
+                if (status != TextToSpeech.ERROR) {
+                    textToSpeech.language = Locale.UK
+                }
+        })
+
         createCountDownTimer(fingerboardWorkout, timerIndex)
 
         startWorkoutButton = findViewById(R.id.start_workout_button)
@@ -58,15 +69,24 @@ class FingerboardTimerActivity : AppCompatActivity() {
         }
     }
 
+    private fun speakOut(text: String) {
+        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
+    }
+
     fun createCountDownTimer(workout: Workout, timerIndex: Int) {
         val countDownTime: Int = workout.actions[timerIndex].getTimeInSeconds()
         countDownTimerTextView.text = countDownTime.toString()
         currentStatusTextView.text = workout.actions[timerIndex].getStatusString()
         countDownTimer = object: CountDownTimer((countDownTime * 1000).toLong(), countDownInterval) {
             override fun onTick(millisUntilFinished: Long) {
-//                timeLeftOnTimer = millisUntilFinished
                 val timeLeft = millisUntilFinished / 1000
                 countDownTimerTextView.text = timeLeft.toString()
+
+                when (timeLeft.toInt()) {
+                    2 -> speakOut("three")
+                    1 -> speakOut("two")
+                    0 -> speakOut("one")
+                }
             }
 
             override fun onFinish() {
