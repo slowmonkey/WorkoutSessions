@@ -11,31 +11,42 @@ open class Workout constructor(
     val actions: MutableList<Action> = emptyList<Action>().toMutableList()
 
     init {
+        var setNumber = 1
         for (set in numberOfSets downTo 1) {
+            var repNumber = 1
             for (rep in numberOfReps downTo 1) {
                 actions.add(
                     Action(
                         ActionType.Hang,
                         hangTime,
-                        rep
+                        repNumber,
+                        numberOfReps,
+                        numberOfSets
                     )
                 )
                 actions.add(
                     Action(
                         ActionType.Rest,
                         repsRestTime,
-                        rep
+                        repNumber,
+                        numberOfReps,
+                        numberOfSets
                     )
                 )
+
+                repNumber += 1
             }
 
             actions.add(
                 Action(
                     ActionType.EndOfSetRest,
                     restTimeBetweenSets,
-                    set
+                    setNumber,
+                    numberOfReps,
+                    numberOfSets
                 )
             )
+            setNumber += 1
         }
     }
 }

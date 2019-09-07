@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.TextView
-import com.slowmonkeycodes.workouttimers.fingerboardtimer.Action
 import com.slowmonkeycodes.workouttimers.fingerboardtimer.Workout
 
 class FingerboardTimerActivity : AppCompatActivity() {
@@ -53,7 +52,7 @@ class FingerboardTimerActivity : AppCompatActivity() {
         startWorkoutButton = findViewById(R.id.start_workout_button)
 
         startWorkoutButton.setOnClickListener {
-            currentStatusTextView.text = fingerboardWorkout.actions[timerIndex].getActionTypeAsString()
+            currentStatusTextView.text = fingerboardWorkout.actions[timerIndex].getStatusString()
             // Count down to start.
             countDownTimer.start()
         }
@@ -62,7 +61,7 @@ class FingerboardTimerActivity : AppCompatActivity() {
     fun createCountDownTimer(workout: Workout, timerIndex: Int) {
         val countDownTime: Int = workout.actions[timerIndex].getTimeInSeconds()
         countDownTimerTextView.text = countDownTime.toString()
-        currentStatusTextView.text = workout.actions[timerIndex].getActionTypeAsString()
+        currentStatusTextView.text = workout.actions[timerIndex].getStatusString()
         countDownTimer = object: CountDownTimer((countDownTime * 1000).toLong(), countDownInterval) {
             override fun onTick(millisUntilFinished: Long) {
 //                timeLeftOnTimer = millisUntilFinished
