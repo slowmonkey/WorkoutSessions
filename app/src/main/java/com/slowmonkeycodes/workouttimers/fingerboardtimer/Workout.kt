@@ -19,7 +19,7 @@ open class Workout constructor(
                     Action(
                         ActionType.Hang,
                         hangTime,
-                        repNumber,
+                        rep,
                         numberOfReps,
                         numberOfSets
                     )
@@ -28,7 +28,7 @@ open class Workout constructor(
                     Action(
                         ActionType.Rest,
                         repsRestTime,
-                        repNumber,
+                        rep,
                         numberOfReps,
                         numberOfSets
                     )
@@ -41,7 +41,7 @@ open class Workout constructor(
                 Action(
                     ActionType.EndOfSetRest,
                     restTimeBetweenSets,
-                    setNumber,
+                    set,
                     numberOfReps,
                     numberOfSets
                 )

@@ -7,6 +7,7 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import com.slowmonkeycodes.workouttimers.fingerboardtimer.ActionType
 import com.slowmonkeycodes.workouttimers.fingerboardtimer.Workout
 import java.util.*
 
@@ -64,7 +65,6 @@ class FingerboardTimerActivity : AppCompatActivity() {
 
         startWorkoutButton.setOnClickListener {
             currentStatusTextView.text = fingerboardWorkout.actions[timerIndex].getStatusString()
-            // Count down to start.
             countDownTimer.start()
         }
     }
@@ -77,23 +77,38 @@ class FingerboardTimerActivity : AppCompatActivity() {
         val countDownTime: Int = workout.actions[timerIndex].getTimeInSeconds()
         countDownTimerTextView.text = countDownTime.toString()
         currentStatusTextView.text = workout.actions[timerIndex].getStatusString()
+
+        val currentActionType = workout.actions[timerIndex].actionType
+
         countDownTimer = object: CountDownTimer((countDownTime * 1000).toLong(), countDownInterval) {
+            var firstVoice: Boolean = true
             override fun onTick(millisUntilFinished: Long) {
                 val timeLeft = millisUntilFinished / 1000
                 countDownTimerTextView.text = timeLeft.toString()
 
-                when (timeLeft.toInt()) {
-                    2 -> speakOut("three")
-                    1 -> speakOut("two")
-                    0 -> speakOut("one")
+                if (firstVoice) {
+                    firstVoice = false
+                    when(currentActionType) {
+                        ActionType.Hang -> speakOut("hang")
+                        ActionType.Rest -> speakOut("rest")
+                        ActionType.EndOfSetRest -> speakOut("rest")
+                    }
+                } else {
+                    when (timeLeft.toInt()) {
+                        2 -> speakOut("three")
+                        1 -> speakOut("two")
+                        0 -> speakOut("one")
+                    }
                 }
             }
 
             override fun onFinish() {
                 this@FingerboardTimerActivity.timerIndex += 1
+
                 if (workout.actions.size <= this@FingerboardTimerActivity.timerIndex) {
                     return
                 }
+
                 createCountDownTimer(workout, this@FingerboardTimerActivity.timerIndex)
                 countDownTimer.start()
             }
