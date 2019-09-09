@@ -13,7 +13,6 @@ open class Workout constructor(
     init {
         var setNumber = 1
         for (set in numberOfSets downTo 1) {
-            var repNumber = 1
             for (rep in numberOfReps downTo 1) {
                 actions.add(
                     Action(
@@ -24,17 +23,18 @@ open class Workout constructor(
                         numberOfSets
                     )
                 )
-                actions.add(
-                    Action(
-                        ActionType.Rest,
-                        repsRestTime,
-                        rep,
-                        numberOfReps,
-                        numberOfSets
-                    )
-                )
 
-                repNumber += 1
+                if (rep != 1) {
+                    actions.add(
+                        Action(
+                            ActionType.Rest,
+                            repsRestTime,
+                            rep - 1,
+                            numberOfReps,
+                            numberOfSets
+                        )
+                    )
+                }
             }
 
             actions.add(
@@ -46,7 +46,6 @@ open class Workout constructor(
                     numberOfSets
                 )
             )
-            setNumber += 1
         }
     }
 }
